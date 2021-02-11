@@ -1,39 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LacSoft Blog</title>
-    <link rel="stylesheet" href="../boot/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../style/regist.css">
-</head>
-<body>
-    <div id="regist" class="">
-        <form >
-            <input type="text" name="fname" id="fname" placeholder="Nom">
-            <input type="text" name="lname" id="lname" placeholder="Pénom(s)">
-            <input type="email" name="mail" id="mail" placeholder="E-mail">
-            <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo">
-            <input type="password" name="pwd" id="usrPwd" placeholder="Mot de passe">
-            <input type="password" name="pwd" id="usrPwd" placeholder="Mot de passe">
-            <div>
-            <div class="radioBut">
-            <input type="radio" class="inline" name="dev" value="front">
-            <label for="front" class="inline">Dev Front End</label>
-            </div>
-            <div class="radioBut">
-            <input type="radio" class="inline" name="dev" value="back">
-            <label for="back" class="inline">Dev Back End</label>
-            </div>
-        </div>
-            <button type="submit" name="connect" id="connect">S'inscrire</button>
-            <p class="text-center">Vous avez déjà un compte, <a href="../index.html">connectez-vous</a></p>
-    
-        </form>
-    </div>
-    
-    <script src="../boot/jquery-3.5.1.min.js"></script>
-    <script src="../boot/bootstrap/js/bootstrap.js"></script>
-    <script src="../scripts/regist.js"></script>
-</body>
+     <head>
+          <meta charset="UTF-8" />
+          <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0"
+          />
+          <title>LacSoft Blog</title>
+          <link rel="stylesheet" href="../boot/bootstrap/css/bootstrap.css" />
+          <link rel="stylesheet" href="../style/regist.css" />
+     </head>
+     <body>
+          <div id="regist" class="">
+               <h4>INSCRIVEZ VOUS EN TANT QUE ADMINISTRATEUR</h4>
+               <form>
+                    <input
+                         type="text"
+                         name="fname"
+                         id="fname"
+                         placeholder="Nom"
+                    />
+                    <input
+                         type="text"
+                         name="lname"
+                         id="lname"
+                         placeholder="Pénom(s)"
+                    />
+                    <input
+                         type="email"
+                         name="mail"
+                         id="mail"
+                         placeholder="E-mail"
+                    />
+                    <input
+                         type="text"
+                         name="pseudo"
+                         id="pseudo"
+                         placeholder="Pseudo"
+                    />
+                    <input
+                         type="password"
+                         name="pwd"
+                         id="usrPwd"
+                         placeholder="Mot de passe"
+                    />
+                    <input
+                         type="password"
+                         name="pwd"
+                         id="usrPwd"
+                         placeholder="Mot de passe"
+                    />
+                    <div>
+                         <div class="radioBut">
+                              <input
+                                   type="radio"
+                                   class="inline"
+                                   name="dev"
+                                   value="front"
+                              />
+                              <label for="front" class="inline"
+                                   >Dev Front End</label
+                              >
+                         </div>
+                         <div class="radioBut">
+                              <input
+                                   type="radio"
+                                   class="inline"
+                                   name="dev"
+                                   value="back"
+                              />
+                              <label for="back" class="inline"
+                                   >Dev Back End</label
+                              >
+                         </div>
+                    </div>
+                    <button type="submit" name="connect" id="connect">
+                         S'inscrire
+                    </button>
+               </form>
+          </div>
+
+          <script src="../boot/jquery-3.5.1.min.js"></script>
+          <script src="../boot/bootstrap/js/bootstrap.js"></script>
+          <script src="../scripts/regist.js"></script>
+     </body>
 </html>

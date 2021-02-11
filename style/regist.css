@@ -40,6 +40,14 @@ form > input {
      font-family: "Comic Sans MS";
      text-align: center;
 }
+form > input:focus{
+     outline: none;
+     border-color: rgb(223, 60, 60);
+}
+button:focus{
+     outline: none;
+     border-color: rgb(223, 60, 60);
+}
 
 button {
      border-width: 3px;
