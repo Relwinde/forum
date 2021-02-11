@@ -1,0 +1,59 @@
+#regist {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     background-image: url(../images/body-paint.png);
+     background-size: cover;
+     background-repeat: repeat-y;
+}
+.inline {
+     display: inline-block;
+}
+.radioBut {
+     display: inline-block;
+}
+form {
+     background-color: rgba(221, 183, 55, 1);
+     box-shadow: 0px 0px 12.9px 2.1px rgba(0, 0, 0, 0.3);
+     max-width: 400px;
+     width: 95%;
+     height: 600px;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     flex-direction: column;
+     padding: 25p;
+}
+
+form > input {
+     max-width: 300px;
+     width: 90%;
+     padding: 5px;
+     height: 40px;
+     border-width: 3px;
+     border-color: rgb(146, 141, 255);
+     border-style: solid;
+     border-radius: 42px;
+     background-color: rgb(255, 255, 255);
+     font-size: 15px;
+     font-family: "Comic Sans MS";
+     text-align: center;
+}
+
+button {
+     border-width: 3px;
+     border-color: rgb(255, 255, 255);
+     border-style: solid;
+     border-radius: 42px;
+     background-color: rgb(49, 39, 249);
+     width: 120px;
+     height: 40px;
+     color: white;
+}
+
+@media screen and (max-width: 576px) {
+     form {
+          background-color: rgba(221, 182, 55, 0.699);
+     }
+}

@@ -1,0 +1,94 @@
+* {
+     margin: 0;
+     padding: 0;
+}
+.mainSm {
+     width: 90%;
+     background-color: white;
+     position: relative;
+     position: fixed;
+}
+.main {
+     width: 60%;
+     background-color: white;
+     position: relative;
+     position: fixed;
+}
+body {
+     background-color: #d6d6d6;
+     display: flex;
+     justify-content: center;
+}
+nav {
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     z-index: 1;
+}
+.homeSearch {
+     display: flex;
+     align-items: center;
+}
+
+.home img {
+     width: 60%;
+     margin-left: 5px;
+}
+#search {
+     background-image: url(../images/search-icon.png);
+     background-repeat: no-repeat;
+     background-position-y: center;
+     background-position-x: 1px;
+     padding: 3px 0px 3px 28px;
+     border-radius: 10px;
+}
+
+.search {
+     width: 40px;
+}
+.searchOpen {
+     width: 200px;
+     animation: openSearch;
+     animation-duration: 0.5s;
+}
+
+.searchClose {
+     width: 40px;
+     animation: closeSearch;
+     animation-duration: 0.5s;
+}
+
+@keyframes openSearch {
+     from {
+          width: 40px;
+     }
+     to {
+          width: 200px;
+     }
+}
+@keyframes closeSearch {
+     from {
+          width: 200px;
+     }
+     to {
+          width: 40px;
+     }
+}
+
+.usrBase {
+     display: flex;
+     align-items: center;
+}
+
+.usrInf h3,
+.usrInf p {
+     margin-bottom: 0;
+     margin-top: 0;
+}
+
+.usrInf {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+}
