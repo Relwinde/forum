@@ -1,0 +1,1 @@
+DROP DATABASE lacsoft_forum;

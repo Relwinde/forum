@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +16,11 @@
 <body>
     <?php
           require '../process/functions.php';
+          if (!isset($_SESSION['type'])){
+               header("location: ../index.php");
+          }
+          
+          
            if(isset($_POST['connect'])){
                 if(pwdNotMatch($_POST['pswd'], $_POST['pswdrepeat'])){
                      header("location: ./register.php?error=1");

@@ -4,12 +4,11 @@ function adminExist (){
      $stmt = $database->query(("SELECT * FROM admins"));
      $result = $stmt->num_rows;
      if($result>0){
-         header("location: ./signin.html");
-         
+         return true;
      }
-     else{
-         header("location: ./pages/register.php");
-         
+     
+     else{ 
+         return false;
      }
      
 }
