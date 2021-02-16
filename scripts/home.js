@@ -19,11 +19,3 @@ search.addEventListener("blur", function (){
 var send = document.getElementById("send");
 var write = document.getElementById("write");
 var form = document.getElementById("form");
-
-send.style.display = "none";
-
-write.addEventListener("click", function (){
-    this.style.display = "none";
-    send.style.display = "block";
-    form.setAttribute("class", "formop");
-})

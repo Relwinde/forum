@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,15 +12,20 @@
     <link rel="stylesheet" href="../style/admin.css" />
 </head>
 
+
 <body>
     <nav>
         <div class="left">
-            <button id="signUp">Deconnexion</button>
-            <h3><span>Admin</span>Name</h3>
+            <button type="submit" name="disconnect" id=" signUp">Deconnexion</button>
+            <h3>
+                <span>
+                    <?php echo ($_SESSION['userFirstName'])?>
+                </span>
+                <?php echo ($_SESSION['userLastName'])?>
+            </h3>
         </div>
         <div class="right">
             <ul>
-                <li><a href="">Membres</a></li>
                 <li><a href="">Discussions</a></li>
             </ul>
         </div>

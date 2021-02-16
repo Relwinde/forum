@@ -4,7 +4,7 @@ $_SESSION['type'];
     require './process/functions.php';
     if(adminExist()){
         $_SESSION['type'] = "old";
-        header("location: ./signin.html");
+        header("location: ./signin.php");
     }
     else{
         $_SESSION['type'] = "new";

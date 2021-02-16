@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +12,7 @@ session_start();
 <body>
     <?php
           require '../process/functions.php';
-          if (!isset($_SESSION['type'])){
+          if (!isset($_SESSION)){
                header("location: ../index.php");
           }
           
@@ -31,7 +27,7 @@ session_start();
                     
                    if(creatAdmin($_POST['fname'], $_POST['lname'], $_POST['mail'], $hpwd))
                    {
-                        header("location: ../signin.html?error=0");                  
+                        header("location: ../signin.php?error=0");                  
                    }
                    else {
                     header("location: ./register.php?error=2");
@@ -47,16 +43,7 @@ session_start();
             <input type="email" required name="mail" id="mail" placeholder="E-mail" />
             <input type="password" required name="pswd" id="usrPwd" placeholder="Mot de passe" />
             <input type="password" required name="pswdrepeat" id="usrPwd" placeholder="Mot de passe" />
-            <div>
-                <div class="radioBut">
-                    <input type="radio" class="inline" name="dev" value="front" />
-                    <label for="front" class="inline">Dev Front End</label>
-                </div>
-                <div class="radioBut">
-                    <input type="radio" class="inline" name="dev" value="back" />
-                    <label for="back" class="inline">Dev Back End</label>
-                </div>
-            </div>
+
             <button type="submit" name="connect" id="connect">
                 S'inscrire
             </button>
