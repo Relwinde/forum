@@ -1,161 +1,159 @@
-input:focus{
-    outline: none;
-    border: 4px solid red;
+input:focus {
+     outline: none;
+     border: 4px solid red;
 }
-button:focus{
-    outline: none;
-    border: 4px solid red;
-}
-
-.option{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    overflow: hidden;
+button:focus {
+     outline: none;
+     border: 4px solid red;
 }
 
-.option button{
-    background-color: rgba(255, 0, 0, 1);
-    display: inline-block;
-    overflow: hidden;
-    border-radius: 10px;
+.option {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     overflow: hidden;
 }
 
-button a{
-    text-decoration: none;
-    color: inherit;
-}
-button a:hover{
-    text-decoration: none;
-    color: inherit;
+.option button {
+     background-color: rgba(255, 0, 0, 1);
+     display: inline-block;
+     overflow: hidden;
+     border-radius: 10px;
 }
 
-
-.main div{
-    display: inline-block;
+button a {
+     text-decoration: none;
+     color: inherit;
+}
+button a:hover {
+     text-decoration: none;
+     color: inherit;
 }
 
-.main{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px 10px 5px 10px;
-}
-.name h4{
-    font-size: 20px;
-    font-family: "Century Gothic";
-    color: rgb(0, 0, 0);
-    font-weight: lighter;
-    line-height: 1.2;
+.main div {
+     display: inline-block;
 }
 
-.name span{
-        font-size: 20px;
-        font-family: "Century Gothic";
-        color: rgb(0, 0, 0);
-        font-weight: bold;
-        line-height: 1.2;
+.main {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin: 5px 10px 5px 10px;
+}
+.name h4 {
+     font-size: 18px;
+     font-family: "Century Gothic";
+     color: rgb(0, 0, 0);
+     font-weight: lighter;
+     line-height: 1.2;
 }
 
-.depart h5{
-        font-size: 20px;
-        font-family: "Consolas";
-        color: rgb(0, 0, 0);
-        font-style: italic;
+.name span {
+     font-size: 18px;
+     font-family: "Century Gothic";
+     color: rgb(0, 0, 0);
+     font-weight: bold;
+     line-height: 1.2;
 }
 
-.option h4{
-        font-size: 20px;
-        font-family: "Consolas";
-        color: rgb(0, 0, 0);
-        font-style: italic;
-      
+.depart h5 {
+     font-size: 15px;
+     font-family: "Consolas";
+     color: rgb(0, 0, 0);
+     font-style: italic;
 }
 
 .option h4 {
-    display: inline-block;
-}
-center hr{
-    margin: 5px 0px 5px 0px;
-    border-width: 1px;
-    border-color: magenta;
+     font-size: 15px;
+     font-family: "Consolas";
+     color: rgb(0, 0, 0);
+     font-style: italic;
 }
 
-.element h4, .element h5 {
-    margin: 0;
+.option h4 {
+     display: inline-block;
+}
+center hr {
+     margin: 5px 0px 5px 0px;
+     border-width: 1px;
+     border-color: magenta;
+}
+
+.element h4,
+.element h5 {
+     margin: 0;
 }
 .element {
-    overflow: hidden;
-    animation: listClose;
-    animation-duration: 0.5s;
-    height: 34.89px;
+     overflow: hidden;
+     animation: listClose;
+     animation-duration: 0.5s;
+     height: 34.89px;
 }
 
-.element:hover{
-    animation: listOpen;
-    animation-duration: 0.5s;
-    height: 77.78px;
-    overflow: hidden;
+.element:hover {
+     animation: listOpen;
+     animation-duration: 0.5s;
+     height: 77.78px;
+     overflow: hidden;
 }
 
-.option{
-    overflow: hidden; 
+.option {
+     overflow: hidden;
 }
 
-.icon img{
-    width: 60%;
+.icon img {
+     width: 60%;
 }
 
-.element:hover  .icon{
-    animation: iconOpen;
-    animation-duration: 0.5s;
-    transform: rotate(-180deg);
+.element:hover .icon {
+     animation: iconOpen;
+     animation-duration: 0.5s;
+     transform: rotate(-180deg);
 }
-.icon{
-    animation: iconClose;
-    animation-duration: 0.5s;
-}
-
-@keyframes listOpen{
-    from {
-        height: 34.89px;
-    }
-    to {
-        height: 77.78px;
-    }
+.icon {
+     animation: iconClose;
+     animation-duration: 0.5s;
 }
 
-@keyframes listClose{
-    from {
-        height: 77.8px;
-    }
-    to {
-        height: 34.89px;
-    }
+@keyframes listOpen {
+     from {
+          height: 34.89px;
+     }
+     to {
+          height: 77.78px;
+     }
+}
+
+@keyframes listClose {
+     from {
+          height: 77.8px;
+     }
+     to {
+          height: 34.89px;
+     }
 }
 @keyframes iconOpen {
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(-180deg);
-    }
+     from {
+          transform: rotate(0deg);
+     }
+     to {
+          transform: rotate(-180deg);
+     }
 }
 
 @keyframes iconClose {
-    from{
-        transform: rotate(-180deg);
-    }
-    to{
-        transform: rotate(0deg);
-    }
+     from {
+          transform: rotate(-180deg);
+     }
+     to {
+          transform: rotate(0deg);
+     }
 }
 @media screen and (max-width: 850px) {
-    .option h4{
-        font-size: 14px;
-        font-family: "Consolas";
-        color: rgb(0, 0, 0);
-        font-style: italic;
-}
-
+     .option h4 {
+          font-size: 14px;
+          font-family: "Consolas";
+          color: rgb(0, 0, 0);
+          font-style: italic;
+     }
 }

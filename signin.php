@@ -21,6 +21,9 @@ if(isset($_POST['connect'])){
         if ((connectUser($_POST['usrId'], $_POST['usrPwd']))=="admin"){
             header("location: ./pages/admin.php?connection:ok");
         }
+        else{
+            header("location: ./pages/home.php?connection:ok");
+        }
     }
 }
 

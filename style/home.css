@@ -16,6 +16,7 @@ body {
      width: 100%;
      position: fixed;
      top: 0;
+     z-index: 100;
 }
 
 .usrInf h3,
@@ -155,28 +156,114 @@ nav {
      background-color: white;
 }
 
+.postDiv {
+     width: 50%;
+     margin-top: 25px;
+}
+
+.postElement {
+     margin-bottom: 20px;
+}
+.postDiv p {
+     border-radius: 2px;
+     background-color: rgb(246, 237, 237);
+     text-align: justify;
+     padding: 15px;
+     font-size: 14px;
+     font-family: "Comic Sans MS";
+     color: rgb(0, 0, 0);
+     min-width: 100%;
+     margin-top: 0px;
+     padding-top: 40px;
+     margin-bottom: 1px;
+}
+
+element {
+     display: block;
+     background-color: rgba(248, 191, 255, 0.507);
+     width: 98%;
+     margin: 2px 0px 2px 0px;
+     text-align: left;
+     text-justify: justify;
+     padding: 5px;
+     border-radius: 5px;
+     font-family: "Comic Sans MS";
+     font-size: 13px;
+}
+
+element span {
+     font-weight: 600;
+}
+
+.postDiv h4 span {
+     font-size: 16.327px;
+     font-family: "Bahnschrift";
+     color: rgb(0, 0, 0);
+     font-weight: bold;
+}
+
+.postDiv h4 {
+     font-weight: lighter;
+     font-size: 16.327px;
+     font-family: "Bahnschrift";
+     color: rgb(0, 0, 0);
+     border-width: 1px;
+     border-color: rgb(0, 0, 0);
+     border-style: solid;
+     border-radius: 20px;
+     background-color: rgb(236, 232, 248);
+     padding: 3px;
+     min-width: 30%;
+     width: auto;
+     z-index: 10;
+     margin-bottom: 10px;
+     float: left;
+}
+
+.com {
+     margin: 0;
+     font-family: "Bahnschrift";
+     border: 1px solid blueviolet;
+     width: 90%;
+     padding: 2px;
+     border-radius: 5px;
+}
+
+/*.comsDiv {
+     border: 1px solid black;
+     width: 100%;
+     height: 50px;
+}
+*/
 .sect form img {
      width: 30px;
-     right: 35px;
-     top: -20px;
+     right: 0px;
+     top: 21px;
      cursor: pointer;
+     position: absolute;
 }
 .sect form textarea:focus {
      outline: none;
 }
 .sect form textarea {
-     width: 50%;
+     max-width: 100%;
+     width: 100%;
      height: 50px;
      resize: both;
      border: 2px solid blueviolet;
      border-radius: 5px;
 }
 .sect form textarea:focus {
-     width: 50%;
+     width: 100%;
      height: 50px;
      resize: both;
      border: 2px solid red;
      border-radius: 5px;
+}
+
+.textIcon {
+     width: 50%;
+     position: relative;
 }
 
 @keyframes formOpen {
@@ -233,7 +320,7 @@ nav {
      .sect {
           width: 70%;
           padding-top: 100px;
-          background-image: url(../images/body-paint.png);
+          background-color: white;
      }
 }
 
@@ -258,15 +345,15 @@ nav {
           border-color: rgb(0, 0, 0);
           border-style: solid;
           background-color: rgb(221, 183, 55);
-          height: 70px;
+          height: 60px;
      }
      .sect {
           width: 100%;
           padding-top: 100px;
-          background-image: url(../images/body-paint.png);
+          background-color: white;
      }
      .usrInf h3 {
-          font-size: 20px;
+          font-size: 14px;
           font-family: "Century Gothic";
           color: rgb(0, 0, 0);
           font-weight: lighter;
@@ -281,7 +368,7 @@ nav {
           border-color: rgb(255, 255, 255);
           border-style: solid;
           border-radius: 25px;
-          font-size: 10px;
+          font-size: 8px;
           background-color: rgb(79, 78, 59);
           font-family: "Century Gothic";
           color: rgb(255, 255, 255);
@@ -290,7 +377,7 @@ nav {
      }
 
      .userPic img {
-          width: 50px;
+          width: 40px;
           margin-right: 5px;
      }
      .usrInf {
@@ -320,7 +407,7 @@ nav {
           border-color: rgb(255, 255, 255);
           border-style: solid;
           border-radius: 25px;
-          font-size: 10px;
+          font-size: 8px;
           background-color: rgb(79, 78, 59);
           font-family: "Century Gothic";
           color: rgb(255, 255, 255);
@@ -330,5 +417,36 @@ nav {
           top: 70px;
           right: 0px;
           z-index: 100;
+     }
+
+     .sect form textarea {
+          width: 100%;
+          height: 50px;
+          resize: both;
+          border: 2px solid blueviolet;
+          border-radius: 5px;
+     }
+     .sect form textarea:focus {
+          width: 100%;
+          height: 50px;
+          resize: both;
+          border: 2px solid red;
+          border-radius: 5px;
+     }
+     .textIcon {
+          width: 80%;
+          position: relative;
+     }
+
+     .postDiv {
+          width: 90%;
+          margin-top: 25px;
+     }
+     .sect form img {
+          width: 30px;
+          right: 0px;
+          top: 21px;
+          cursor: pointer;
+          position: absolute;
      }
 }

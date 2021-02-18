@@ -16,7 +16,7 @@ session_start();
 <body>
     <nav>
         <div class="left">
-            <button type="submit" name="disconnect" id=" signUp">Deconnexion</button>
+            <button id="signOut">Deconnexion</button>
             <h3>
                 <span>
                     <?php echo ($_SESSION['userFirstName'])?>
@@ -26,7 +26,7 @@ session_start();
         </div>
         <div class="right">
             <ul>
-                <li><a href="">Discussions</a></li>
+                <li><a href="./home.php">Discussions</a></li>
             </ul>
         </div>
     </nav>

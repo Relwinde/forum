@@ -22,3 +22,48 @@ for(i =0; i<num; i++){
         document.getElementById(a).setAttribute("class", "iconclose");
     })
 }*/
+
+
+var buts = document.getElementsByClassName("delbut");
+var listDIv = document.getElementById("listDiv");
+var ajax = new XMLHttpRequest();
+var processUrl = "../process/process.php";
+
+function getList (){
+    ajax.onreadystatechange= getListResponse;
+    ajax.open("POST", processUrl, true);
+    ajax.setRequestHeader( "Content-Type",
+    "application/x-www-form-urlencoded");
+    ajax.send("getList=true");
+}
+
+function getListResponse (){
+    if (ajax.readyState===4){
+        if(ajax.status===200){
+           listDIv.innerHTML = ajax.response;
+        }
+    }
+}
+
+getList();
+
+
+function delUser (userID){
+    ajax.onreadystatechange= delUserResponse;
+    ajax.open("POST", processUrl, true);
+    ajax.setRequestHeader( "Content-Type",
+    "application/x-www-form-urlencoded");
+    ajax.send("delete=ok&usrID="+Number(userID));
+}
+
+function delUserResponse (){
+    if (ajax.readyState===4){
+        if(ajax.status===200){
+           getList();
+        }
+    }
+}
+
+
+
+
