@@ -12,6 +12,14 @@ window.onload = function (){
             }
            }
        })
+
+       com[i].addEventListener("keypress", function (event){
+        if(event.keyCode==="Go"){
+            if(this.value!=""){
+            sendCom(this.getAttribute("postid"), this.value)
+         }
+        }
+    })
     }
 }
 
@@ -145,6 +153,23 @@ function getPostsResponse (){
     if (ajax.readyState===4){
         if(ajax.status===200){
             postDiv.innerHTML=ajax.response;
+            for(var i =0; i<com.length; i++){
+                com[i].addEventListener("keyup", function (event){
+                    if(event.keyCode===13){
+                        if(this.value!=""){
+                        sendCom(this.getAttribute("postid"), this.value)
+                     }
+                    }
+                })
+         
+                com[i].addEventListener("keypress", function (event){
+                 if(event.keyCode==="Go"){
+                     if(this.value!=""){
+                     sendCom(this.getAttribute("postid"), this.value)
+                  }
+                 }
+             })
+             }
         }
     }
 }

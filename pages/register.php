@@ -11,6 +11,7 @@
 
 <body>
     <?php
+    session_start();
           require '../process/functions.php';
           if (!isset($_SESSION)){
                header("location: ../index.php");
