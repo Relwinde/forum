@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+if(!isset($_SESSION['userID'])){
+    header("location: ../index.php");
+}
+?>
 
 <head>
     <meta charset="UTF-8" />
@@ -10,9 +16,7 @@
 </head>
 
 <body>
-    <?php 
-    session_start();
-    ?> <div class="main">
+    <div class="main">
         <center>
             <nav>
                 <div class="homeSearch">

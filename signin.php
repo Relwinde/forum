@@ -1,10 +1,14 @@
 <?php 
 session_start();
+include './process/functions.php';
+if(isset($_SESSION['userID'])){
+   deconUser();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include './process/functions.php';
+
  if (!isset($_SESSION['type'])){
     header("location: ./index.php");
 }

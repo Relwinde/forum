@@ -1,4 +1,5 @@
 <?php
+
 function adminExist (){
     require 'connect.php';
      $stmt = $database->query(("SELECT * FROM users WHERE userRole='admin'"));
@@ -13,6 +14,7 @@ function adminExist (){
      
 }
 
+
 function pwdNotMatch($pwd, $pwdrpt)
 {
     $result = false;
@@ -23,6 +25,7 @@ function pwdNotMatch($pwd, $pwdrpt)
     }
     return $result;
 }
+
 
 function emailExits($mail){
     require 'connect.php';
@@ -36,6 +39,7 @@ function emailExits($mail){
         return false;
     }
 }
+
 
 function creatAdmin ($firstname, $lastname, $email, $pwde){
     require 'connect.php';
@@ -52,6 +56,7 @@ function creatAdmin ($firstname, $lastname, $email, $pwde){
     return $result;
 }
 
+
 function creatDev ($firstname, $lastname, $email, $pwde){
     require 'connect.php';
     $result;
@@ -66,6 +71,7 @@ function creatDev ($firstname, $lastname, $email, $pwde){
     }
     return $result;
 }
+
 
 function connectUser ($mail, $passwd){
     require 'connect.php';
@@ -103,6 +109,7 @@ function connectUser ($mail, $passwd){
     }
 }
 
+
 function sendPost ($post, $userID){
         require 'connect.php';
         $date = time();
@@ -122,7 +129,9 @@ function sendPost ($post, $userID){
 
 
 
-function getUsersList (){
+
+
+    function getUsersList (){
     require 'connect.php';
     $userID;
     $firstname;
@@ -161,18 +170,19 @@ function getUsersList (){
     }
 } 
 
+
 function delUser ($uSid){
     require 'connect.php';
     
-    $stmt = $database->prepare("DELETE FROM comment WHERE userID = ?");
+    $stmt = $database->prepare("DELETE * FROM comment WHERE userID = ?");
     $stmt->bind_param("s", $uSid);
     $stmt->execute();
     $stmt->close();
-    $stmt = $database->prepare("DELETE FROM post WHERE userID = ?");
+    $stmt = $database->prepare("DELETE * FROM post WHERE userID = ?");
     $stmt->bind_param("i", $uSid);
     $stmt->execute();
     $stmt->close();
-    $stmt = $database->prepare("DELETE FROM users WHERE userID = ?");
+    $stmt = $database->prepare("DELETE * FROM users WHERE userID = ?");
     $stmt->bind_param("i", $uSid);
     $stmt->execute();
     $stmt->close();
@@ -184,6 +194,7 @@ function postNumChek(){
     $stmt = $database->query("SELECT * FROM post");
     return $stmt->num_rows;
 } 
+
 
 function getPosts(){
     require 'connect.php';
@@ -235,14 +246,18 @@ function sendCom ($userID, $postID, $comContaint){
         }
     } 
     
-function getComs ($postId){
+
+    
+
+
+    function getComs ($postId){
     require 'connect.php';
     $result ="";
     $comUserID;
     $comContaint;
     $comUserFirstName;
     $comUserLastName;
-    $stmt = $database->prepare("SELECT userID, comContaint FROM comment WHERE postID = ? ORDER BY comID DESC");
+    $stmt = $database->prepare("SELECT userID, comContaint FROM comment WHERE postID = ? ORDER BY comID ASC");
     $stmt->bind_param("s", $postId);
     $stmt->execute();
     $stmt->store_result();

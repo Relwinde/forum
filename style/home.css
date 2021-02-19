@@ -50,7 +50,7 @@ body {
      font-weight: 700;
      line-height: 1.2;
      text-align: center;
-     font-size: 8px;
+     font-size: 9px;
 }
 
 #search {
@@ -134,7 +134,7 @@ nav {
 }
 
 .usrInf h3 {
-     font-size: 14px;
+     font-size: 15px;
      font-family: "Century Gothic";
      color: rgb(0, 0, 0);
      font-weight: lighter;
@@ -143,7 +143,7 @@ nav {
 }
 
 .usrInf p {
-     font-size: 10px;
+     font-size: 11px;
 }
 
 .usrInf strong {
@@ -169,7 +169,7 @@ nav {
      background-color: rgb(246, 237, 237);
      text-align: justify;
      padding: 15px;
-     font-size: 14px;
+     font-size: 15px;
      font-family: "Comic Sans MS";
      color: rgb(0, 0, 0);
      min-width: 100%;
@@ -188,7 +188,7 @@ element {
      padding: 5px;
      border-radius: 5px;
      font-family: "Comic Sans MS";
-     font-size: 13px;
+     font-size: 14px;
 }
 
 element span {
@@ -196,7 +196,7 @@ element span {
 }
 
 .postDiv h4 span {
-     font-size: 16.327px;
+     font-size: 17.327px;
      font-family: "Bahnschrift";
      color: rgb(0, 0, 0);
      font-weight: bold;
@@ -204,7 +204,7 @@ element span {
 
 .postDiv h4 {
      font-weight: lighter;
-     font-size: 16.327px;
+     font-size: 17.327px;
      font-family: "Bahnschrift";
      color: rgb(0, 0, 0);
      border-width: 1px;
@@ -227,6 +227,10 @@ element span {
      width: 90%;
      padding: 2px;
      border-radius: 5px;
+}
+
+.com:focus {
+     outline: none;
 }
 
 /*.comsDiv {
@@ -353,7 +357,7 @@ element span {
           background-color: white;
      }
      .usrInf h3 {
-          font-size: 14px;
+          font-size: 15px;
           font-family: "Century Gothic";
           color: rgb(0, 0, 0);
           font-weight: lighter;
@@ -368,7 +372,7 @@ element span {
           border-color: rgb(255, 255, 255);
           border-style: solid;
           border-radius: 25px;
-          font-size: 8px;
+          font-size: 9px;
           background-color: rgb(79, 78, 59);
           font-family: "Century Gothic";
           color: rgb(255, 255, 255);
@@ -407,7 +411,7 @@ element span {
           border-color: rgb(255, 255, 255);
           border-style: solid;
           border-radius: 25px;
-          font-size: 8px;
+          font-size: 9px;
           background-color: rgb(79, 78, 59);
           font-family: "Century Gothic";
           color: rgb(255, 255, 255);
