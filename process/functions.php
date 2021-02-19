@@ -194,6 +194,12 @@ function postNumChek(){
     return $stmt->num_rows;
 } 
 
+function comNumChek(){
+    require 'connect.php';
+    $stmt = $database->query("SELECT * FROM comment");
+    return $stmt->num_rows;
+} 
+
 
 function getPosts(){
     require 'connect.php';

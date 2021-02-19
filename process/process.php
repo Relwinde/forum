@@ -17,8 +17,13 @@ if (isset($_POST['delete'])){
 } 
 
 if (isset($_POST['postNum'])){
-    echo (int)postNumChek();
+    echo postNumChek();
 } 
+
+if (isset($_POST['comNum'])){
+    echo comNumChek();
+} 
+
 
 if(isset($_POST['getPosts'])){
     getPosts();

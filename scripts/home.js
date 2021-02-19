@@ -69,6 +69,9 @@ var processUrl = "../process/process.php";
 
 send.addEventListener("click", sendPost);
 
+var numPost =0;
+
+
 function postNumChek (){
     ajax.onreadystatechange = postNumResponse;
     ajax.open("POST", processUrl, true); 
@@ -78,16 +81,46 @@ function postNumChek (){
    );
    ajax.send(
     "postNum=ok");
-    return postNumResponse();
 }
 
 function postNumResponse(){
     if (ajax.readyState===4){
         if(ajax.status===200){
-            return Number (ajax.responseText);
+            if( numPost < Number(ajax.response)){
+                numPost = Number(ajax.response);
+                getPosts();
+            }
         }
     }
 }
+
+setInterval(postNumChek,1000)
+
+var numCom =0;
+function comNumChek (){
+    ajax.onreadystatechange = comNumResponse;
+    ajax.open("POST", processUrl, true); 
+    ajax.setRequestHeader(
+        "Content-Type",
+        "application/x-www-form-urlencoded"
+   );
+   ajax.send(
+    "comNum=ok");
+}
+
+function comNumResponse(){
+    if (ajax.readyState===4){
+        if(ajax.status===200){
+            if( numCom < Number(ajax.response)){
+                numCom = Number(ajax.response);
+                getPosts();
+            }
+        }
+    }
+}
+
+setInterval(comNumChek,1000)
+
 
 function sendPost (){
     var text = post.value;
