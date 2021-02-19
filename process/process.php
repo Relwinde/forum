@@ -24,10 +24,14 @@ if(isset($_POST['getPosts'])){
     getPosts();
 } 
 
-
 if(isset($_POST['postID'])){
     sendCom ($_SESSION['userID'], $_POST['postID'], $_POST['comContaint']);
 }  
+
 if(isset($_POST['deconnect'])){
     return deconUser();
+}
+
+if(isset($_POST['getSearch'])){
+    getSearchPosts($_POST['getSearch']);
 }

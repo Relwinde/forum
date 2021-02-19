@@ -453,4 +453,10 @@ element span {
           cursor: pointer;
           position: absolute;
      }
+     .searchResult {
+          position: absolute;
+          left: -45px;
+          top: 82px;
+          z-index: 100;
+     }
 }

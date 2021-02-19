@@ -5,6 +5,7 @@ if(isset($_SESSION['userID'])){
    deconUser();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -12,6 +13,7 @@ if(isset($_SESSION['userID'])){
  if (!isset($_SESSION['type'])){
     header("location: ./index.php");
 }
+
 if($_SESSION['type']=="new"){
     header("location: ./index.php");
 }

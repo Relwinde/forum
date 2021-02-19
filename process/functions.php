@@ -14,7 +14,6 @@ function adminExist (){
      
 }
 
-
 function pwdNotMatch($pwd, $pwdrpt)
 {
     $result = false;
@@ -281,3 +280,41 @@ function deconUser (){
     session_destroy();
     return true;
 }
+
+
+function getSearchPosts($searchValue){
+    require 'connect.php';
+    $userID;
+    $postID;
+    $postContaint;
+    $userFirstName;
+    $userLastName;
+    $stmt = $database->prepare("SELECT postID, userID, postContaint FROM post ORDER BY postID DESC");
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($postID,$userID, $postContaint);
+    while($stmt->fetch()){
+        if(strpos($postContaint, $searchValue)!==false)
+        {
+        $comments = getComs($postID);
+        $stmtTwo = $database->prepare("SELECT firstName, lastName FROM users WHERE userID=?");
+        $stmtTwo->bind_param("i",$userID);
+        $stmtTwo->execute();
+        $stmtTwo->store_result();
+        $stmtTwo->bind_result($userFirstName, $userLastName);
+        $stmtTwo->fetch();
+        echo ("
+        <div class=postElement>
+                    <h4><span>".$userFirstName."</span>".$userLastName."</h4>
+                    <p class=post>".$postContaint."</p>");
+                    
+        echo ("<div class=comment>".$comments."</div>");
+        echo ("<input type=text class=com postID=".$postID." placeholder=Commenter>
+                </div>
+        ");
+    }
+    }
+    
+    
+ 
+} 

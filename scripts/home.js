@@ -38,6 +38,7 @@ search.addEventListener("mouseout", function (){
 search.addEventListener("focus", function (){
     search.setAttribute("class", "searchOpen")
 }, false)
+
 search.addEventListener("blur", function (){
     search.setAttribute("class", "searchClose")
 }, false)
@@ -51,8 +52,8 @@ deconnect.addEventListener("click", function (){
     decon ();
 })
 
-
 send.style.display = "none";
+
 post.addEventListener("keyup", function (){
     if(post.value!=""){
         send.style.display = "block";
@@ -63,8 +64,8 @@ post.addEventListener("keyup", function (){
 })
 
 var ajax = new XMLHttpRequest();
-var processUrl = "../process/process.php";
 
+var processUrl = "../process/process.php";
 
 send.addEventListener("click", sendPost);
 
@@ -88,8 +89,6 @@ function postNumResponse(){
     }
 }
 
-
-
 function sendPost (){
     var text = post.value;
     if (text!=""){
@@ -112,8 +111,6 @@ function postResponse (){
         }
     }
 }
-
-
 
 function sendCom (postID, comContaint){
 
@@ -174,8 +171,6 @@ function getPostsResponse (){
     }
 }
 
-
-
 function decon (){
     ajax.onreadystatechange = deconResponse;
     ajax.open("POST", processUrl, true); 
@@ -197,6 +192,54 @@ function deconResponse (){
     }
 }
 
+var search = document.getElementById("search");
+
+search.addEventListener("keyup", function (){
+    if(search.value==="")
+    {
+        getPosts();
+    }
+    else{
+        getSearch();
+    }
+})
+
+
+function getSearch (){
+    ajax.onreadystatechange = getSearchResponse;
+    ajax.open("POST", processUrl, true); 
+    ajax.setRequestHeader(
+        "Content-Type",
+        "application/x-www-form-urlencoded"
+   );
+   ajax.send(
+    "getSearch="+search.value);
+}
+
+function getSearchResponse (){
+    if (ajax.readyState===4){
+        if(ajax.status===200){
+            postDiv.innerHTML=ajax.response;
+            for(var i =0; i<com.length; i++){
+                com[i].addEventListener("keyup", function (event){
+                    if(event.keyCode===13){
+                        if(this.value!=""){
+                        sendCom(this.getAttribute("postid"), this.value)
+                     }
+                    }
+                })
+         
+                com[i].addEventListener("keypress", function (event){
+                 if(event.keyCode==="Go"){
+                     if(this.value!=""){
+                     sendCom(this.getAttribute("postid"), this.value)
+                  }
+                 }
+             })
+             }
+        }
+    }
+}
 
 getPosts();
 

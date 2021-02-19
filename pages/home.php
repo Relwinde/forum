@@ -50,7 +50,7 @@ if(!isset($_SESSION['userID'])){
                     <div class="userPic">
                         <img src="../images/user-pic.png" alt="" />
                     </div>
-                    <button id="signOut">Se deconneter</button>
+                    <button id="signOut">Se déconnecter</button>
                 </div>
             </nav>
         </center>
