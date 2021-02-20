@@ -16,13 +16,7 @@ if (isset($_POST['delete'])){
     delUser($id);
 } 
 
-if (isset($_POST['postNum'])){
-    echo postNumChek();
-} 
 
-if (isset($_POST['comNum'])){
-    echo comNumChek();
-} 
 
 
 if(isset($_POST['getPosts'])){

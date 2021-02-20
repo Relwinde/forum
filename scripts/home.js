@@ -64,6 +64,10 @@ post.addEventListener("keyup", function (){
 })
 
 var ajax = new XMLHttpRequest();
+var comUpdateAjax = new XMLHttpRequest();
+var comUpdateUrl = "../process/comUpdate.php";
+var postUpdateAjax = new XMLHttpRequest()
+var postUpdateUrl = "../process/postUpdate.php";
 
 var processUrl = "../process/process.php";
 
@@ -73,46 +77,46 @@ var numPost =0;
 
 
 function postNumChek (){
-    ajax.onreadystatechange = postNumResponse;
-    ajax.open("POST", processUrl, true); 
-    ajax.setRequestHeader(
+    postUpdateAjax.onreadystatechange = postNumResponse;
+    postUpdateAjax.open("POST", postUpdateUrl, true); 
+    postUpdateAjax.setRequestHeader(
         "Content-Type",
         "application/x-www-form-urlencoded"
    );
-   ajax.send(
+   postUpdateAjax.send(
     "postNum=ok");
 }
 
 function postNumResponse(){
-    if (ajax.readyState===4){
+    if (postUpdateAjax.readyState===4){
         if(ajax.status===200){
-            if( numPost < Number(ajax.response)){
-                numPost = Number(ajax.response);
+            if( numPost < Number(postUpdateAjax.response)){
+                numPost = Number(postUpdateAjax.response);
                 getPosts();
             }
         }
     }
 }
 
-setInterval(postNumChek,1000)
+setInterval(postNumChek,500)
 
 var numCom =0;
 function comNumChek (){
-    ajax.onreadystatechange = comNumResponse;
-    ajax.open("POST", processUrl, true); 
-    ajax.setRequestHeader(
+    comUpdateAjax.onreadystatechange = comNumResponse;
+    comUpdateAjax.open("POST", comUpdateUrl, true); 
+    comUpdateAjax.setRequestHeader(
         "Content-Type",
         "application/x-www-form-urlencoded"
    );
-   ajax.send(
+   comUpdateAjax.send(
     "comNum=ok");
 }
 
 function comNumResponse(){
-    if (ajax.readyState===4){
-        if(ajax.status===200){
-            if( numCom < Number(ajax.response)){
-                numCom = Number(ajax.response);
+    if (comUpdateAjax.readyState===4){
+        if(comUpdateAjax.status===200){
+            if( numCom < Number(comUpdateAjax.response)){
+                numCom = Number(comUpdateAjax.response);
                 getPosts();
             }
         }
