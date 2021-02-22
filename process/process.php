@@ -14,9 +14,7 @@ if(isset($_POST['getList'])){
 if (isset($_POST['delete'])){
     $id = (int)$_POST['usrID'];
     delUser($id);
-} 
-
-
+}
 
 
 if(isset($_POST['getPosts'])){

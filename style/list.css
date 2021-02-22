@@ -90,6 +90,10 @@ center hr {
      height: 34.89px;
 }
 
+.bottoRow {
+     margin-bottom: 15px;
+}
+
 .element:hover {
      animation: listOpen;
      animation-duration: 0.5s;

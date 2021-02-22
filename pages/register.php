@@ -13,7 +13,7 @@
     <?php
     session_start();
           require '../process/functions.php';
-          if (!isset($_SESSION['userID'])){
+          if (!isset($_SESSION['type'])){
                header("location: ../index.php");
           }
           

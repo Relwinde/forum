@@ -164,7 +164,7 @@ function sendPost ($post, $userID){
                     Supprimer</button>
             </div>
         </div>
-        <hr>
+        <hr class=bottomRow>
         ";
     }
 } 
@@ -173,15 +173,15 @@ function sendPost ($post, $userID){
 function delUser ($uSid){
     require 'connect.php';
     
-    $stmt = $database->prepare("DELETE * FROM comment WHERE userID = ?");
-    $stmt->bind_param("s", $uSid);
-    $stmt->execute();
-    $stmt->close();
-    $stmt = $database->prepare("DELETE * FROM post WHERE userID = ?");
+    $stmt = $database->prepare("DELETE  FROM comment WHERE userID = ?");
     $stmt->bind_param("i", $uSid);
     $stmt->execute();
     $stmt->close();
-    $stmt = $database->prepare("DELETE * FROM users WHERE userID = ?");
+    $stmt = $database->prepare("DELETE  FROM post WHERE userID = ?");
+    $stmt->bind_param("i", $uSid);
+    $stmt->execute();
+    $stmt->close();
+    $stmt = $database->prepare("DELETE  FROM users WHERE userID = ?");
     $stmt->bind_param("i", $uSid);
     $stmt->execute();
     $stmt->close();
