@@ -61,6 +61,7 @@ if(!isset($_SESSION['userID'])){
                 <div class="textIcon">
                     <textarea name="" id="text" cols="30" rows="4"></textarea>
                     <img src="../images/send-icon.png" alt="" id="send" />
+                    <input type="File" id="postImg" accept=".jpg,.jpeg,.png">
                 </div>
             </form>
             <div class="postDiv" id="postDiv">

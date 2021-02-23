@@ -72,6 +72,21 @@ function creatDev ($firstname, $lastname, $email, $pwde){
 }
 
 
+function modDev ($userID, $userFname, $userLname, $userPwd){
+    require 'connect.php';
+    $result;
+    $stmt = $database->prepare("UPDATE users SET firstName=?, lastName=?, userPass=? WHERE userID =? ");
+    $stmt->bind_param("ssss", $userFname, $userLname, $userPwd, $userID);
+    if ($stmt->execute()) {
+        $result = true;
+        $stmt->close();
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+
 function connectUser ($mail, $passwd){
     require 'connect.php';
     $stmt = $database->prepare("SELECT * FROM users WHERE userEmail = ?");
@@ -108,12 +123,30 @@ function connectUser ($mail, $passwd){
     }
 }
 
+function pwdChek ($userID, $passWd){
+    require 'connect.php';
+    $result = false;
+    $userPass;
+    $stmt = $database->prepare("SELECT userPass FROM users WHERE userID = ?");
+    $stmt->bind_param("s", $userID);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($userPass);
+    $stmt->fetch();
+    if (password_verify( $passWd,$userPass)){
+        $result = true;
+    }
+    else{
+        $result=false;
+    }
+    return $result;
+}
 
 function sendPost ($post, $userID){
         require 'connect.php';
-        $date = time();
-        $stmt = $database->prepare("INSERT INTO post (userID, postContaint, postDate) VALUES (?, ?, ?)");
-        $stmt->bind_param("ssd", $userID, $post, $date);
+        $date =date("Y/m/d/H:i:s");
+        $stmt = $database->prepare("INSERT INTO post (userID, postContaint) VALUES (?, ?)");
+        $stmt->bind_param("ss", $userID, $post);
         if($stmt->execute()){
             return true;
             $stmt->close();
@@ -123,6 +156,10 @@ function sendPost ($post, $userID){
             $stmt->close();
         }
     }
+
+
+
+
 
 
 
@@ -205,13 +242,14 @@ function getPosts(){
     require 'connect.php';
     $userID;
     $postID;
+    $postDate;
     $postContaint;
     $userFirstName;
     $userLastName;
-    $stmt = $database->prepare("SELECT postID, userID, postContaint FROM post ORDER BY postID DESC");
+    $stmt = $database->prepare("SELECT postID, userID, postContaint, postDate FROM post ORDER BY postID DESC");
     $stmt->execute();
     $stmt->store_result();
-    $stmt->bind_result($postID,$userID, $postContaint);
+    $stmt->bind_result($postID,$userID, $postContaint, $postDate);
     while($stmt->fetch()){
         $comments = getComs($postID);
         $stmtTwo = $database->prepare("SELECT firstName, lastName FROM users WHERE userID=?");
@@ -223,7 +261,7 @@ function getPosts(){
         echo ("
         <div class=postElement>
                     <h4><span>".$userFirstName."</span>".$userLastName."</h4>
-                    <p class=post>".$postContaint."</p>");
+                    <p class=post>".$postContaint."<br><span>".$postDate."</span></p>");
                     
         echo ("<div class=comment>".$comments."</div>");
         echo ("<input type=text class=com postID=".$postID." placeholder=Commenter>
@@ -238,9 +276,8 @@ function getPosts(){
 
 function sendCom ($userID, $postID, $comContaint){
         require 'connect.php';
-        $date = time();
-        $stmt = $database->prepare("INSERT INTO comment (userID, postID, comContaint, comDate) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("sssd", $userID, $postID,$comContaint, $date);
+        $stmt = $database->prepare("INSERT INTO comment (userID, postID, comContaint) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $userID, $postID,$comContaint);
         if($stmt->execute()){
             return true;
             $stmt->close();
@@ -255,18 +292,19 @@ function sendCom ($userID, $postID, $comContaint){
     
 
 
-    function getComs ($postId){
+ function getComs ($postId){
     require 'connect.php';
     $result ="";
     $comUserID;
     $comContaint;
+    $comDate;
     $comUserFirstName;
     $comUserLastName;
-    $stmt = $database->prepare("SELECT userID, comContaint FROM comment WHERE postID = ? ORDER BY comID ASC");
+    $stmt = $database->prepare("SELECT userID, comContaint, comDate FROM comment WHERE postID = ? ORDER BY comID ASC");
     $stmt->bind_param("s", $postId);
     $stmt->execute();
     $stmt->store_result();
-    $stmt->bind_result($comUserID, $comContaint);
+    $stmt->bind_result($comUserID, $comContaint, $comDate);
     while($stmt->fetch()){
         $stmtTwo = $database->prepare("SELECT firstName, lastName FROM users where userID = ?");
         $stmtTwo->bind_param("i", $comUserID);
@@ -275,7 +313,7 @@ function sendCom ($userID, $postID, $comContaint){
         $stmtTwo->bind_result($comUserFirstName, $comUserLastName);
         $stmtTwo->fetch();
         $result .= ("
-        <element><span>".$comUserFirstName." ".$comUserLastName.":</span> ".$comContaint."</element>");
+        <element><span>".$comUserFirstName." ".$comUserLastName.":</span> ".$comContaint."<br><span class=dates>".$comDate."</span></element>");
     } 
     return $result;
 } 

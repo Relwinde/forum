@@ -48,8 +48,8 @@ if(isset($_POST['connect'])){
     <div id="main" class="">
         <form method="POST">
             <div class="form-top">
-                <input type="text" name="usrId" id="usrId" placeholder="E-mail">
-                <input type="password" name="usrPwd" id="usrPwd" placeholder="Mot de passe">
+                <input required type="text" name="usrId" id="usrId" placeholder="E-mail">
+                <input required type="password" name="usrPwd" id="usrPwd" placeholder="Mot de passe">
                 <button type="submit" name="connect" id="connect">Connexion</button>
             </div>
             <div class="form-bott">

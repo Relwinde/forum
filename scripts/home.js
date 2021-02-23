@@ -29,6 +29,10 @@ search.addEventListener("mouseover", function (){
     search.setAttribute("class", "searchOpen")
 }, false)
 
+document.querySelector(".usrInf h3").addEventListener("click", function (){
+    window.location.replace("../pages/modify.php");
+})
+
 search.addEventListener("mouseout", function (){
     var active = document.activeElement;
     if(active!==search){

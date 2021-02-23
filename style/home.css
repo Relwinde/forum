@@ -140,6 +140,7 @@ nav {
      font-weight: lighter;
      line-height: 1.2;
      text-align: center;
+     cursor: pointer;
 }
 
 .usrInf p {
@@ -298,6 +299,19 @@ element span {
           height: 0px;
           border-radius: 10px;
      }
+}
+
+.post span,
+.dates {
+     font-weight: lighter;
+     font-size: 10px;
+     font-style: italic;
+}
+
+.textIcon #postImg {
+     position: absolute;
+     left: 0;
+     top: 51px;
 }
 
 @media screen and (max-width: 576px) {

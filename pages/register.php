@@ -16,6 +16,9 @@
           if (!isset($_SESSION['type'])){
                header("location: ../index.php");
           }
+          if(isset($_SESSION['userRole'])){
+            header("location: ./home.php");
+          }
           
           
            if(isset($_POST['connect'])){
@@ -24,7 +27,6 @@
                     }
                else{
                     $hpwd = password_hash($_POST['pswdrepeat'], PASSWORD_DEFAULT);
-                    var_dump($hpwd);
                     
                    if(creatAdmin($_POST['fname'], $_POST['lname'], $_POST['mail'], $hpwd))
                    {
