@@ -94,11 +94,12 @@ function postNumResponse(){
                 numPost = Number(postUpdateAjax.response);
                 getPosts();
             }
+            comNumChek()
         }
-    }
+    };
 }
-
-setInterval(postNumChek,500)
+setTimeout(postNumChek(), 500);
+//setInterval(postNumChek,500)
 
 var numCom =0;
 function comNumChek (){
@@ -117,13 +118,14 @@ function comNumResponse(){
         if(comUpdateAjax.status===200){
             if( numCom < Number(comUpdateAjax.response)){
                 numCom = Number(comUpdateAjax.response);
-                getPosts();
+                getPosts();  
             }
+            postNumChek();
         }
     }
 }
-
-setInterval(comNumChek,1000)
+setTimeout(comNumChek(), 1000);
+//setInterval(comNumChek,1000)
 
 
 function sendPost (){
@@ -204,6 +206,7 @@ function getPostsResponse (){
                  }
              })
              }
+             comNumChek();
         }
     }
 }
